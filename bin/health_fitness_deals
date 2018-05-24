@@ -1,0 +1,8 @@
+#!/usr/bin/env ruby
+
+#require "bundler/setup"
+require "./lib/health_fitness_deals"
+
+puts "Hello World"
+
+HealthFitnessDeals::CLI.new.call
