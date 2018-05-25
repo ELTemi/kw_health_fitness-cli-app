@@ -1,6 +1,20 @@
 class HealthFitnessDeals::Deal
-  attr_accessor :title, :sub_title, :url
-    def self.all #return all deal instances
+  attr_accessor :title, :sub_title, :url, :description, :location, :price
+
+  @@deals = []
+
+  #def initialize(deal_hash)
+  #  deal_hash.each do |key, value|
+  #    self.send(("#{key}="), value)
+  #  end
+  #  @@deals << self
+  #end
+
+  def self.create_list_of_deals
+
+  end
+
+  def self.all #return all deal instances
 
     deal_1 = self.new
     deal_1.title = "Vincent Optical"
