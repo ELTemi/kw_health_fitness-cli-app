@@ -1,6 +1,5 @@
 class HealthFitnessDeals::DealsScrapper
-  attr_accessor :url
-
+  attr_accessor :deal_url
 
   def self.scrape_web_index
     doc = Nokogiri::HTML(open("https://www.livingsocial.com/browse/kitchener-waterloo?category=health-and-fitness"))
@@ -17,7 +16,7 @@ class HealthFitnessDeals::DealsScrapper
       all_deals
   end
 
-  def self.scrape_details(url)
+  def self.scrape_details(deal_url)
     doc = Nokogiri::HTML(url)
     details = doc.search("div.module-body")
     scraped_deal = {}
@@ -26,5 +25,7 @@ class HealthFitnessDeals::DealsScrapper
       scraped_deal[:orginal_price] = deal.search("div.value-source-wrapper div.breakout-option-value").text.strip
       scraped_deal[:discount_price] = deal.search("div.price-discount-wrapper div.breakout-option-price").text.strip
       scraped_deal[:description] = deal.search("section p").text.strip
+    end
+    scraped_deal
   end
 end
