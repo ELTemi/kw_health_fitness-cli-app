@@ -3,15 +3,15 @@ class HealthFitnessDeals::Deal
 
   @@deals = []
 
-  def initialize(deal_attributes)
-    deal_attributes.each do |key, value|
-      self.send(("#{key}="), value)
+  def initialize(deals_attributes)
+    deals_attributes.each do |k, v|
+      self.send(("#{k}="), v)
     end
     @@deals << self
   end
 
   def self.create_list_of_deals(deals_array)
-    deals_array.map {|deal| self.new(deal_attributes)}
+    deals_array.map {|deal| self.new(deal)}
   end
 
   def add_deal_attributes(deal_hash)
