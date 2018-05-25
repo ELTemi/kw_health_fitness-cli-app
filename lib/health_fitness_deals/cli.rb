@@ -11,35 +11,24 @@ class HealthFitnessDeals::CLI
   end
 
   def list_available_deals
-    @deal = HealthFitnessDeals::Deal.all
+    @deals = HealthFitnessDeals::Deal.all
+    @deals.each.with_index(1) do |deal, i|
+      puts "#{i}. #{deal.title} - #{deal.sub_title} - #{deal.url}"
+    end
   end
 
   def details_menu
     puts "Please enter the number of the deal you want more details on:"
     input = ""
     while input != "exit"
-      input = gets.strip.to_i
-      case input
-      when 1
-        puts <<-DOC.gsub /^\s*/, ""
-          Title: C$19.50 for C$200 Worth of Prescription Sunglasses or Glasses
-          Merchant name: Vincent Optical
-          Merchant Location: Kitchener
-          Rating Value: 91
-          Number of ratings: 353
-          Description: Registered opticians help customers select a flattering look from their stock of designer frames ($80–$299), lenses ($89+), and sunglasses ($189+).
-        DOC
-      when 2
-        puts <<-DOC.gsub /^\s*/, ""
-          Title: C$19.50 for C$200 Worth of Prescription Sunglasses or Glasses
-          Merchant name: Vincent Optical
-          Merchant Location: Kitchener
-          Rating Value: 91
-          Number of ratings: 353
-          Description: Registered opticians help customers select a flattering look from their stock of designer frames ($80–$299), lenses ($89+), and sunglasses ($189+).
-        DOC
-      when "list"
+      input = gets.strip.downcase
+
+      if input.to_i > 0
+        puts @deals[input.to_i - 1]
+      elsif input == "list"
         list_available_deals
+      else
+        puts "You have made an invalid entry. Please try again"
       end
     end
   end
