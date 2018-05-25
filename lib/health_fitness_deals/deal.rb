@@ -14,4 +14,18 @@ class HealthFitnessDeals::Deal
 
     [deal_1, deal_2]
   end
+
+  def self.scraped_deals
+    deals = []
+    deals << self.scrape_web
+    #go to livingsocial.com
+    #extract the attributes
+    #instantiate a deal
+    deals
+  end
+
+  def self.scrape_web
+    doc = Nokogiri::HTML(open("https://www.livingsocial.com/browse/kitchener-waterloo?category=health-and-fitness"))
+    binding.pry
+  end
 end
