@@ -13,7 +13,6 @@ class HealthFitnessDeals::CLI
   def list_available_deals
     deals_array = HealthFitnessDeals::DealsScrapper.scrape_web_index
     deal_objects = HealthFitnessDeals::Deal.create_list_of_deals(deals_array)
-
     deal_objects.each.with_index(1) do |deal, i|
       puts "#{i}. #{deal.title} - #{deal.sub_title} - #{deal.deal_url}"
     end
@@ -26,8 +25,8 @@ class HealthFitnessDeals::CLI
       input = gets.strip.downcase
 
       if input.to_i > 0
-        chosen_deal = @deals[input.to_i - 1]
-        puts "#{chosen_deal.title} - #{chosen_deal.sub_title} - #{chosen_deal.url}"
+        chosen_deal = list_available_deals[input.to_i - 1]
+        puts "#{chosen_deal.title} - #{chosen_deal.sub_title} - #{chosen_deal.deal_url}"
       elsif input == "list"
         list_available_deals
       else
