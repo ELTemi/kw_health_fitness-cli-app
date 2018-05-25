@@ -1,12 +1,7 @@
 class HealthFitnessDeals::Deal
   attr_accessor :title, :sub_title, :url
-  #@@all = {} #a hash of all the attributes of one deal
-  def self.all #return all deal instances
-    #@@all
-    #puts <<-DOC.gsub /^\s*/, ""
-    #  1. Vincent Optical - 90% off Eyewear
-    #  2. Stronger Forever - 73% off Group Training Classes
-    #DOC
+    def self.all #return all deal instances
+
     deal_1 = self.new
     deal_1.title = "Vincent Optical"
     deal_1.sub_title = "90% off Eyewear"

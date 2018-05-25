@@ -24,7 +24,8 @@ class HealthFitnessDeals::CLI
       input = gets.strip.downcase
 
       if input.to_i > 0
-        puts @deals[input.to_i - 1]
+        chosen_deal = @deals[input.to_i - 1]
+        puts "#{chosen_deal.title} - #{chosen_deal.sub_title} - #{chosen_deal.url}"
       elsif input == "list"
         list_available_deals
       else
