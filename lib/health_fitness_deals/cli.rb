@@ -12,11 +12,11 @@ class HealthFitnessDeals::CLI
 
   def list_available_deals
     deals_array = HealthFitnessDeals::DealsScrapper.scrape_web_index
-    HealthFitnessDeals::Deal.create_list_of_deals(deals_array)
-    #@deals = HealthFitnessDeals::Deal.all
-    #@deals.each.with_index(1) do |deal, i|
-    #  puts "#{i}. #{deal.title} - #{deal.sub_title} - #{deal.url}"
-    #end
+    deal_objects = HealthFitnessDeals::Deal.create_list_of_deals(deals_array)
+
+    deal_objects.each.with_index(1) do |deal, i|
+      puts "#{i}. #{deal.title} - #{deal.sub_title} - #{deal.deal_url}"
+    end
   end
 
   def details_menu
