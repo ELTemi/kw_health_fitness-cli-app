@@ -11,4 +11,5 @@ There will also be a HealthFitnessDeal class (this will represent each deal inst
  - Original Price @org_price
  - Discounted Price @disc_price
  - location @location
- - Description #description
+ - Description @description
+ - URL @url
