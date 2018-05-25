@@ -52,5 +52,6 @@ class HealthFitnessDeals::CLI
 
   def exit
     puts "Thank you for stopping by. Please visit us sometime for moe deals"
+    details_menu
   end
 end
