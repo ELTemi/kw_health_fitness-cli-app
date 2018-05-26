@@ -20,7 +20,7 @@ class HealthFitnessDeals::CLI
 
   def print_chosen_deal(chosen_deal)
     puts ""
-    puts "-------- #{chosen_deal.title} - #{chosen_deal.sub_title} --------"
+    puts "-------- #{chosen_deal.main_title} --------"
     puts ""
     puts "  Original Price: #{chosen_deal.original_price}"
     puts "  Discount Price: #{chosen_deal.discount_price}"
