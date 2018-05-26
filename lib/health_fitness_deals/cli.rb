@@ -18,6 +18,16 @@ class HealthFitnessDeals::CLI
     end
   end
 
+  def print_chosen_deal(chosen_deal)
+    puts ""
+    puts "-------- #{chosen_deal.title} - #{chosen_deal.sub_title} --------"
+    puts ""
+    puts "  Original Price: #{chosen_deal.original_price}"
+    puts "  Discount Price: #{chosen_deal.discount_price}"
+    puts "  Description: #{chosen_deal.description}"
+  end
+
+
   def details_menu
     puts "Please enter the number of the deal you want more details on:"
     input = ""
@@ -25,8 +35,8 @@ class HealthFitnessDeals::CLI
       input = gets.strip.downcase
 
       if input.to_i > 0
-        chosen_deal = list_available_deals[input.to_i - 1]
-        puts "#{chosen_deal.title} - #{chosen_deal.sub_title} - #{chosen_deal.deal_url}"
+        chosen_deal =  HealthFitnessDeals::Deal.all.find(input.to_i)
+        print_chosen_deal(chosen_deal)
       elsif input == "list"
         list_available_deals
       else

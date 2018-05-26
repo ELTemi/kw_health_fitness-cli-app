@@ -14,22 +14,33 @@ class HealthFitnessDeals::Deal
     deals_array.map {|deal| self.new(deal)}
   end
 
-  def add_deal_attributes(deal_hash)
-    deal_hash.each {|key, value| self.send(("#{key}="), value)}
+  def details
+    @doc = Nokogiri::HTML(open(self.deal_url))
+    details = @doc.search("div.module-body")
+    details
+  end
+
+  def title
+    @title = details.search("h1#deal-title").text.strip
+  end
+
+  def original_price
+    @original_price = details.search("div.value-source-wrapper div.breakout-option-value").text.strip
+  end
+
+  def discount_price
+    @discount_price = details.search("div.price-discount-wrapper div.breakout-option-price").text.strip
+  end
+
+  def description
+    @description = details.search("section p").text.strip
+  end
+
+  def self.find(i)
+    self.all(i -1)
   end
 
   def self.all #return all deal instances
     @@deals
-    #deal_1 = self.new
-    #deal_1.title = "Vincent Optical"
-    #deal_1.sub_title = "90% off Eyewear"
-    #deal_1.url = "https://www.livingsocial.com/deals/vincent-optical"
-
-    #deal_2 = self.new
-    #deal_2.title = "Stronger Forever"
-    #deal_2.sub_title = "73% off Group Training Classes"
-    #deal_2.url = "https://www.livingsocial.com/deals/stronger-forever-1-1"
-
-    #[deal_1, deal_2]
   end
 end
