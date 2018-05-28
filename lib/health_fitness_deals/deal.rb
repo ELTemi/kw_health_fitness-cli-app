@@ -37,7 +37,7 @@ class HealthFitnessDeals::Deal
   end
 
   def self.find(i)
-    self.all(i -1)
+    self.all[i -1]
   end
 
   def self.all #return all deal instances
