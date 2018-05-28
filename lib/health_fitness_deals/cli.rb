@@ -43,18 +43,24 @@ class HealthFitnessDeals::CLI
         elsif input == "n"
           puts "Thank you for visiting us! Have a fabulous day!"
         else
-          puts "You have made an invalid entry. Please try again"
+          invalid_entry    
         end
         
       elsif input == "list"
         list_available_deals
+        details_menu
+      elsif input == "exit"
+        goodbye
       else
-        puts "You have made an invalid entry. Please try again"
+        invalid_entry
       end
   end
   
-  def exit
+  def goodbye
     puts "Thank you for stopping by. Please visit us sometime for moe deals"
-    details_menu
+  end
+  
+  def invalid_entry
+    "You have made an invalid entry. Please try again" 
   end
 end
