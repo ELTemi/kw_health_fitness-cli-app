@@ -24,12 +24,16 @@ class HealthFitnessDeals::Deal
     @main_title = details.search("h1#deal-title").text.strip
   end
 
+  def products
+    @product = details.css("div.option-details h3").children.map {|product| product.text}
+  end
+
   def original_price
-    @original_price = details.search("div.value-source-wrapper div.breakout-option-value").text.strip
+    @original_price = details.search("div.value-source-wrapper div.breakout-option-value").children.map {|price| price.text.strip}
   end
 
   def discount_price
-    @discount_price = details.search("div.price-discount-wrapper div.breakout-option-price").text.gsub("\n", "")
+    @discount_price = details.search("div.price-discount-wrapper div.breakout-option-price").children.map {|price| price.text.strip}
   end
 
   def description

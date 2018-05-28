@@ -19,11 +19,24 @@ class HealthFitnessDeals::CLI
   end
 
   def print_chosen_deal(chosen_deal)
+
+    #if chosen.product.length
     puts ""
     puts "#{chosen_deal.main_title}                  "
     puts ""
-    puts "Original Price: #{chosen_deal.original_price}   "
-    puts "Discount Price: #{chosen_deal.discount_price}   "
+
+    if chosen_deal.products.length > 0
+      chosen_deal.products.each.with_index(1) {|product, i| puts "Product #{i}: #{product}"}
+    end
+
+    if chosen_deal.original_price.length > 0
+      chosen_deal.original_price.each.with_index(1) {|price, i| puts "Original Price #{i}: #{price}"}
+    end
+
+    if chosen_deal.discount_price.length > 0
+      chosen_deal.discount_price.each.with_index(1) {|price, i| puts "Discount Price #{i}: #{price}"}
+    end
+
     puts "Description: #{chosen_deal.description}         "
   end
 
