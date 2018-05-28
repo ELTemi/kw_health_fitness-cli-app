@@ -29,11 +29,11 @@ class HealthFitnessDeals::Deal
   end
 
   def discount_price
-    @discount_price = details.search("div.price-discount-wrapper div.breakout-option-price").text.strip
+    @discount_price = details.search("div.price-discount-wrapper div.breakout-option-price").text.gsub("\n", "")
   end
 
   def description
-    @description = details.search("section p").text.strip
+    @description = details.search("section p").text.gsub("\n", "").strip
   end
 
   def self.find(i)

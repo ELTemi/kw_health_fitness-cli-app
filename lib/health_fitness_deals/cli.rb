@@ -32,7 +32,7 @@ class HealthFitnessDeals::CLI
     puts "Please enter the number of the deal you want more details on:"
       input = gets.strip.downcase
 
-    if input.to_i > 0
+    if input.to_i > 0 && input.to_i <= HealthFitnessDeals::Deal.all.length
       chosen_deal =  HealthFitnessDeals::Deal.find(input.to_i)
       print_chosen_deal(chosen_deal)
 
