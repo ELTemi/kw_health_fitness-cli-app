@@ -19,8 +19,6 @@ class HealthFitnessDeals::CLI
   end
 
   def print_chosen_deal(chosen_deal)
-
-    #if chosen.product.length
     puts ""
     puts "#{chosen_deal.main_title}                  "
     puts ""
@@ -37,7 +35,7 @@ class HealthFitnessDeals::CLI
       chosen_deal.discount_price.each.with_index(1) {|price, i| puts "Discount Price #{i}: #{price}"}
     end
 
-    puts "Description: #{chosen_deal.description}         "
+    puts "Description: #{chosen_deal.description}"
   end
 
 

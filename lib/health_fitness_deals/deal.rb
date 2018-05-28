@@ -1,5 +1,5 @@
 class HealthFitnessDeals::Deal
-  attr_accessor :title, :sub_title, :deal_url, :main_title, :description, :location, :original_price, :discount_price
+  attr_accessor :title, :sub_title, :deal_url, :main_title, :description, :location, :original_price, :discount_price, :products
 
   @@deals = []
 
