@@ -20,11 +20,11 @@ class HealthFitnessDeals::CLI
 
   def print_chosen_deal(chosen_deal)
     puts ""
-    puts "         #{chosen_deal.main_title}                  "
+    puts "#{chosen_deal.main_title}                  "
     puts ""
-    puts "    Original Price: #{chosen_deal.original_price}   "
-    puts "    Discount Price: #{chosen_deal.discount_price}   "
-    puts "    Description: #{chosen_deal.description}         "
+    puts "Original Price: #{chosen_deal.original_price}   "
+    puts "Discount Price: #{chosen_deal.discount_price}   "
+    puts "Description: #{chosen_deal.description}         "
   end
 
 
@@ -32,29 +32,30 @@ class HealthFitnessDeals::CLI
     puts "Please enter the number of the deal you want more details on:"
       input = gets.strip.downcase
 
-      if input.to_i > 0
-        chosen_deal =  HealthFitnessDeals::Deal.find(input.to_i)
-        print_chosen_deal(chosen_deal)
+    if input.to_i > 0
+      chosen_deal =  HealthFitnessDeals::Deal.find(input.to_i)
+      print_chosen_deal(chosen_deal)
 
-        puts "Would you like to select another deal? Enter Y or N"
-        input = gets.strip.downcase
-        if input == "y"
-          start
-        elsif input == "n"
-          puts "Thank you for visiting us! Have a fabulous day!"
-        else
-          invalid_entry
-        end
-
-      elsif input == "list"
-        list_available_deals
-        details_menu
-      elsif input == "exit"
-        goodbye
+      puts "Would you like to select another deal? Enter Y or N"
+      input = gets.strip.downcase
+      if input == "y"
+        start
+      elsif input == "n"
+        puts "Thank you for visiting us! Have a fabulous day!"
       else
         invalid_entry
         details_menu
       end
+
+    elsif input == "list"
+      list_available_deals
+      details_menu
+    elsif input == "exit"
+      goodbye
+    else
+      invalid_entry
+      details_menu
+    end
   end
 
   def goodbye
@@ -62,6 +63,6 @@ class HealthFitnessDeals::CLI
   end
 
   def invalid_entry
-    "You have made an invalid entry. Please try again"
+    puts "You have made an invalid entry. Please try again"
   end
 end
