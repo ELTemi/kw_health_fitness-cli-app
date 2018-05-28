@@ -2,7 +2,7 @@
 
 Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/health_fitness_deals`. To experiment with that code, run `bin/console` for an interactive prompt.
 
-The HealthFitnessDeals CLI app is a command line application that will enable the user to see a list of deals related to health and fitness in the kitchener-waterloo area of Camada.
+The HealthFitnessDeals CLI app is a command line application that will enable the user to see a list of deals related to health and fitness in the kitchener-waterloo area of Canada.
 
 ## Installation
 
