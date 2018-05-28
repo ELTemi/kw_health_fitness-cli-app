@@ -35,7 +35,7 @@ class HealthFitnessDeals::CLI
       if input.to_i > 0
         chosen_deal =  HealthFitnessDeals::Deal.find(input.to_i)
         print_chosen_deal(chosen_deal)
-        
+
         puts "Would you like to select another deal? Enter Y or N"
         input = gets.strip.downcase
         if input == "y"
@@ -43,9 +43,9 @@ class HealthFitnessDeals::CLI
         elsif input == "n"
           puts "Thank you for visiting us! Have a fabulous day!"
         else
-          invalid_entry    
+          invalid_entry
         end
-        
+
       elsif input == "list"
         list_available_deals
         details_menu
@@ -53,14 +53,15 @@ class HealthFitnessDeals::CLI
         goodbye
       else
         invalid_entry
+        details_menu
       end
   end
-  
+
   def goodbye
-    puts "Thank you for stopping by. Please visit us sometime for moe deals"
+    puts "Thank you for stopping by. Please visit us again sometime for moe deals"
   end
-  
+
   def invalid_entry
-    "You have made an invalid entry. Please try again" 
+    "You have made an invalid entry. Please try again"
   end
 end
