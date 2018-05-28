@@ -37,7 +37,11 @@ class HealthFitnessDeals::Deal
   end
 
   def description
-    @description = details.search("section p").text.gsub("\n", "").strip
+    @description = details.search("section p span").text
+  end
+
+  def location
+    @location = details.search("div.merchant-location").text.strip
   end
 
   def self.find(i)

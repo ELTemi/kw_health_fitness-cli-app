@@ -28,13 +28,14 @@ class HealthFitnessDeals::CLI
     end
 
     if chosen_deal.original_price.length > 0
-      chosen_deal.original_price.each.with_index(1) {|price, i| puts "Original Price #{i}: #{price}"}
+      chosen_deal.original_price.each.with_index(1) {|price, i| puts "Original Price for Product #{i}: #{price}"}
     end
 
     if chosen_deal.discount_price.length > 0
-      chosen_deal.discount_price.each.with_index(1) {|price, i| puts "Discount Price #{i}: #{price}"}
+      chosen_deal.discount_price.each.with_index(1) {|price, i| puts "Discount Price for Product #{i}: #{price}"}
     end
 
+    puts "Location: #{chosen_deal.location}"
     puts "Description: #{chosen_deal.description}"
   end
 
