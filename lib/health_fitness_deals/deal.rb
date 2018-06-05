@@ -41,6 +41,7 @@ class HealthFitnessDeals::Deal
   end
 
   def location
+#    binding.pry
     @location = details.search("div.merchant-location").text.strip
   end
 

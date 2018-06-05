@@ -5,7 +5,7 @@ class HealthFitnessDeals::CLI
 
   def start
     puts "Welcome to the Deals app for Health and Fitness in the KW area"
-    puts "Here are available deals currently trending"
+    puts "Here are available deals currently trending. if you would like to exit the app, type 'exit'."
     list_available_deals
     details_menu
   end
