@@ -4,7 +4,6 @@ class HealthFitnessDeals::DealsScrapper
   def self.scrape_web_index
     @doc = Nokogiri::HTML(open("https://www.livingsocial.com/browse/kitchener-waterloo?category=health-and-fitness"))
     list_doc = @doc.search("div#pull-cards a")
-    all_deals = []
     list_doc.each do |deal|
       if deal.css("div.cui-udc-title-with-subtitle").text.strip.empty?
         title = deal.css("div.cui-udc-title").text.strip
@@ -13,9 +12,8 @@ class HealthFitnessDeals::DealsScrapper
       end
       sub_title = deal.css("div.cui-udc-subtitle").text.strip
       deal_url = deal.attr("href")
-      all_deals << {title: title, sub_title: sub_title, deal_url: deal_url}
-      end
-      all_deals
+      HealthFitnessDeals::Deal.new({title: title, sub_title: sub_title, deal_url: deal_url})
+    end
   end
 end
 

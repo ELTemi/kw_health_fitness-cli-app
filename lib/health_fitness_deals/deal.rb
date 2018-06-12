@@ -15,34 +15,32 @@ class HealthFitnessDeals::Deal
   end
 
   def details
-    @doc = Nokogiri::HTML(open(self.deal_url))
-    details = @doc.search("div.module-body")
-    details
+    @doc ||= Nokogiri::HTML(open(self.deal_url))
+    @details ||= @doc.search("div.module-body")
   end
 
   def main_title
-    @main_title = details.search("h1#deal-title").text.strip
+    @main_title ||= details.search("h1#deal-title").text.strip
   end
 
   def products
-    @product = details.css("div.option-details h3").children.map {|product| product.text}
+    @product ||= details.css("div.option-details h3").children.map {|product| product.text}
   end
 
   def original_price
-    @original_price = details.search("div.value-source-wrapper div.breakout-option-value").children.map {|price| price.text.strip}
+    @original_price ||= details.search("div.value-source-wrapper div.breakout-option-value").children.map {|price| price.text.strip}
   end
 
   def discount_price
-    @discount_price = details.search("div.price-discount-wrapper div.breakout-option-price").children.map {|price| price.text.strip}
+    @discount_price ||= details.search("div.price-discount-wrapper div.breakout-option-price").children.map {|price| price.text.strip}
   end
 
   def description
-    @description = details.search("section p span").text
+    @description ||= details.search("section p span").text
   end
 
   def location
-#    binding.pry
-    @location = details.search("div.merchant-location").text.strip
+    @location ||= details.search("div.merchant-location").text.strip
   end
 
   def self.find(i)
