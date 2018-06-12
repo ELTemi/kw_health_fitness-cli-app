@@ -6,7 +6,11 @@ class HealthFitnessDeals::DealsScrapper
     list_doc = @doc.search("div#pull-cards a")
     all_deals = []
     list_doc.each do |deal|
-      title = deal.css("div.cui-udc-title-with-subtitle").text.strip
+      if deal.css("div.cui-udc-title-with-subtitle").text.strip.empty?
+        title = deal.css("div.cui-udc-title").text.strip
+      else
+        title = deal.css("div.cui-udc-title-with-subtitle").text.strip
+      end
       sub_title = deal.css("div.cui-udc-subtitle").text.strip
       deal_url = deal.attr("href")
       all_deals << {title: title, sub_title: sub_title, deal_url: deal_url}

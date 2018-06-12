@@ -7,4 +7,3 @@ Specs:
 
 resources
 - https://learn.co/tracks/full-stack-web-development-v5/object-oriented-ruby/final-projects/cli-data-gem-walkthrough
--
