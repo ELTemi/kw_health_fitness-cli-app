@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
 
   spec.summary       = %q{This cli gem app provides a list of health and fitness deals in the Kitchener-Waterloo(KW) region of Canada. The user will select a deal and a details of the deal will be provided}
   spec.description   = %q{}
-  spec.homepage      = "https://github.com/ELTemi/kw_health_fitness-cli-app.git"
+  spec.homepage      = "https://github.com/gems/kw_health_fitness-cli-app.git"
   spec.license       = "MIT"
   s.executables      << 'health_fitness_deals'
 
