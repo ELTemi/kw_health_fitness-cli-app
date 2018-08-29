@@ -13,7 +13,8 @@ Gem::Specification.new do |spec|
   spec.description   = %q{}
   spec.homepage      = "https://github.com/ELTemi/kw_health_fitness-cli-app.git"
   spec.license       = "MIT"
-  
+  s.executables      << 'health_fitness_deals'
+
   spec.files         = `git ls-files -z`.split("\x0").reject do |f|
     f.match(%r{^(test|spec|features)/})
   end
