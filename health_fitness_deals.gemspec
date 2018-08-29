@@ -13,16 +13,7 @@ Gem::Specification.new do |spec|
   spec.description   = %q{}
   spec.homepage      = "https://github.com/ELTemi/kw_health_fitness-cli-app.git"
   spec.license       = "MIT"
-
-  # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
-  # to allow pushing to a single host or delete this section to allow pushing to any host.
-  if spec.respond_to?(:metadata)
-    spec.metadata["allowed_push_host"] = "TODO: Set to 'https://rubygems.org'"
-  else
-    raise "RubyGems 2.0 or newer is required to protect against " \
-      "public gem pushes."
-  end
-
+  
   spec.files         = `git ls-files -z`.split("\x0").reject do |f|
     f.match(%r{^(test|spec|features)/})
   end
@@ -36,4 +27,26 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "pry"
 
   spec.add_dependency "nokogiri"
+end
+
+equire_relative './lib/worlds_best_restaurants/version'
+
+Gem::Specification.new do |s|
+  s.name        = 'worlds-best-restaurants'
+  s.version     = WorldsBestRestaurants::VERSION
+  s.date        = '2016-01-13'
+  s.summary     = "Best Restaurants in the World"
+  s.description = "Provides details on the San Pellegrino Worlds 50 Best restaurants"
+  s.authors     = ["Danny Dawson"]
+  s.email       = 'dannyd4315@gmail.com'
+  s.files       = ["lib/worlds_best_restaurants.rb", "lib/worlds_best_restaurants/cli.rb", "lib/worlds_best_restaurants/scraper.rb", "lib/worlds_best_restaurants/restaurant.rb", "config/environment.rb"]
+  s.homepage    = 'http://rubygems.org/gems/worlds-best-restaurants'
+  s.license     = 'MIT'
+  s.executables << 'worlds-best-restaurants'
+
+  s.add_development_dependency "bundler", "~> 1.10"
+  s.add_development_dependency "rake", "~> 10.0"
+  s.add_development_dependency "rspec", ">= 0"
+  s.add_development_dependency "nokogiri", ">= 0"
+  s.add_development_dependency "pry", ">= 0"
 end
